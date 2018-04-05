@@ -21,7 +21,9 @@ def calculator():
 
     while True:
         user_input = raw_input("> ")
-        token = user_input.split(' ')
+        token = user_input.split('[')
+        token
+        for i in token
         if token[0] == "q":
             return
         elif token[0] == "+":
@@ -54,3 +56,5 @@ def calculator():
         print result
 
 calculator()
+
++ [12, 3, 4]
