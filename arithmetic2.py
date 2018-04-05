@@ -1,61 +1,68 @@
-"""Math functions that take lists containing any number of number inputs"""
+"""Math functions that take lsts containing any number of number inputs"""
 
 
-def add(list):
+def add(lst):
+    if not lst:
+        return []
+    elif len(lst) == 1:
+        return lst
     result = 0
-    for i in list:
+    for i in lst:
         result += i
     return result
 
 
-def subtract(list):
-    if len(list) == 0:
-        return 0
+def subtract(lst):
+    if not lst:
+        return []
+    elif len(lst) == 1:
+        return lst
     else:
-        result = list[0]
-        for i in list:
+        result = lst[0]
+        for i in lst:
             result -= i
         return result
 
 
-def multiply(list):
-    if len(list) == 0:
-        return 0
+def multiply(lst):
+    if not lst:
+        return []
+    elif len(lst) == 1:
+        return lst
     else:
         result = 1
-        for i in list:
+        for i in lst:
             result *= i
         return result
 
 
-def divide(list):
-    if len(list) == 0:
-        return 0
-    elif len(list) == 1:
-        return list[0]
+def divide(lst):
+    if not lst:
+        return []
+    elif len(lst) == 1:
+        return lst
     else:
-        result = list[0]
-        print range(len(list))
-        for i in range(len(list)-1):
-            result /= list[i+1]
+        result = lst[0]
+        for i in range(1, len(lst)):
+            result /= lst[i]
         return result
 
 
-def square(list):
-    if len(list) == 0:
+def square(lst):
+    if not lst:
         return []
     else:
         squared_nums = []
-        for i in list:
+        for i in lst:
             squared_nums.append(i * i)
         return squared_nums
 
 
-def cube(list):
-    if len(list) == 0:
+def cube(lst):
+    if not lst:
         return []
     else:
         cubed_nums = []
-        for i in list:
+        for i in lst:
             cubed_nums.append(i**3)
         return cubed_nums
