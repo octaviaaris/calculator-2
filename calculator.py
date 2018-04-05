@@ -24,30 +24,30 @@ def calculator():
         token = user_input.split('[')
         token
         for i in token
-        if token[0] == "q":
+        if token[0].strip() == "q":
             return
-        elif token[0] == "+":
+        elif token[0].strip() == "+":
             result = add(float(token[1]), float(token[2]))
 
-        elif token[0] == "-":
+        elif token[0].strip() == "-":
             result = subtract(float(token[1]), float(token[2]))
 
-        elif token[0] == "*":
+        elif token[0].strip() == "*":
             result = multiply(float(token[1]), float(token[2]))
 
-        elif token[0] == "/":
+        elif token[0].strip() == "/":
             result = divide(float(token[1]), float(token[2]))
 
-        elif token[0] == "square":
+        elif token[0].strip() == "square":
             result = square(float(token[1]))
 
-        elif token[0] == "cube":
+        elif token[0].strip() == "cube":
             result = cube(float(token[1]))
 
-        elif token[0] == "pow":
+        elif token[0].strip() == "pow":
             result = power(float(token[1]), float(token[2]))
 
-        elif token[0] == "mod":
+        elif token[0].strip() == "mod":
             result = mod(float(token[1]), float(token[2]))
 
         else:
