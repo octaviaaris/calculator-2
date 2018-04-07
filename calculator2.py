@@ -15,6 +15,7 @@ calculator program yourself in this file.
 
 from arithmetic2 import *
 
+
 def calculator():
     """A REPL function that creates a prefix calculator"""
 
@@ -24,52 +25,42 @@ def calculator():
         token = usr_input_string.split("[")
         operator = token[0].strip()
         pre_lst1 = token[1].split("]")
-        pre_lst2 = list(pre_lst1[0])
-        str_lst = pre_lst2[0::3]
-        lst = []
+        pre_lst2 = pre_lst1[0].split(",")
 
         # [lst.append(float(i)) for i in str_lst] #correct list comprehension
 
-        for i in str_lst:
-            lst.append(float(i))
-
-
-        # calc_input = (operator, lst)
+        lst = [float(item) for item in pre_lst2]
 
         return (operator, lst)
 
     while True:
         user_input = raw_input("> ")
 
-        calc_input = create_token(user_input)
+        if user_input == "q":
+                return
 
-        if calc_input[0] == "q":
-            return
-        elif calc_input[0] == "+":
-            result = add(calc_input[1])
+        try:
+            calc_input = create_token(user_input)
 
-        elif calc_input[0] == "-":
-            result = subtract(calc_input[1])
+            if calc_input[0] == "+":
+                result = add(calc_input[1])
 
-        elif calc_input[0] == "*":
-            result = multiply(calc_input[1])
+            elif calc_input[0] == "-":
+                result = subtract(calc_input[1])
 
-        elif calc_input[0] == "/":
-            result = divide(calc_input[1])
+            elif calc_input[0] == "*":
+                result = multiply(calc_input[1])
 
-        elif calc_input[0] == "square":
-            result = square(calc_input[1])
+            elif calc_input[0] == "/":
+                result = divide(calc_input[1])
 
-        elif calc_input[0] == "cube":
-            result = cube(calc_input[1])
+            elif calc_input[0] == "square":
+                result = square(calc_input[1])
 
-        elif calc_input[0] == "pow":
-            result = power(calc_input[1])
+            elif calc_input[0] == "cube":
+                result = cube(calc_input[1])
 
-        elif calc_input[0] == "mod":
-            result = mod(calc_input[1])
-
-        else:
+        except:
             result = "Invalid Input"
 
         print result
